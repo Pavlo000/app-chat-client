@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/app-chat-client/static/css/main.7279d586.css",
+    "main.js": "/app-chat-client/static/js/main.ab2c6b3f.js",
+    "static/media/fa-solid-900.ttf": "/app-chat-client/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/fa-brands-400.ttf": "/app-chat-client/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
+    "static/media/fa-solid-900.woff2": "/app-chat-client/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/fa-brands-400.woff2": "/app-chat-client/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/fa-regular-400.ttf": "/app-chat-client/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "static/media/fa-regular-400.woff2": "/app-chat-client/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
+    "static/media/fa-v4compatibility.ttf": "/app-chat-client/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/fa-v4compatibility.woff2": "/app-chat-client/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "index.html": "/app-chat-client/index.html",
+    "main.7279d586.css.map": "/app-chat-client/static/css/main.7279d586.css.map",
+    "main.ab2c6b3f.js.map": "/app-chat-client/static/js/main.ab2c6b3f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7279d586.css",
+    "static/js/main.ab2c6b3f.js"
+  ]
+}
