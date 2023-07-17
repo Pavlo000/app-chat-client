@@ -2,8 +2,6 @@ import React, { useMemo, useState } from 'react';
 import { accessTokenService } from '../services/accessTokenService';
 import { authService } from '../services/authService';
 import { IUser } from '../types/IUser';
-import socket from '../socket';
-
 type Credentials = { email: string; password: string };
 type UserDetails = { name: string, surname: string, avatar?: string };
 type AuthResponse = { accessToken: string, user: IUser };
@@ -45,7 +43,6 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
       setUser(user);
 
     } catch (error) {
-      socket.disconnect();
       console.log('User is not authentincated');
     } finally {
       setChecked(true);
@@ -72,8 +69,6 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
 
     accessTokenService.remove();
     setUser(null);
-
-    socket.disconnect();
   }
 
   const value = useMemo(() => ({

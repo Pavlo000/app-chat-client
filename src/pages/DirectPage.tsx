@@ -1,21 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../components/AuthContext";
 import { useParams } from "react-router-dom";
-import socket from "../socket";
 import { MessageList } from "../components/DirectPage/MessageList";
-import { chatService } from "../services/chatService";
 import { IChat, IMessage, IUser } from "../types";
 import { Loader } from "../components/Loader";
 import { ErrorMessage } from "../components/ErrorMessage";
+import { messageService } from "../services/messageService";
+import socket from "../socket";
 
 export const DirectPage: React.FC = () => {
   const { chatId } = useParams();
   const { user: currentUser } = useContext(AuthContext);
   const [messages, setMessages] = useState<IMessage[]>([]);
-  const [receiver, setReceiver] = useState<IUser | null>(null);
   const [chat, setChat] = useState<IChat | null>(null);
+  const [receiver, setReceiver] = useState<IUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -24,58 +24,64 @@ export const DirectPage: React.FC = () => {
   useEffect(() => {
     socket.connect();
 
-    socket.on('connect', () => {
-      const token = localStorage.getItem('accessToken');
-
-      socket.emit('authSocket', token);
-    });
-
-    socket.emit('getAllMessages', chatId);
-    socket.on('getAllMessages', setMessages);
-
-    console.log(messages);
-
     return () => {
-      socket.off('authSocket');
-      socket.off('getAllMessages');
-      socket.off('connect');
+      socket.disconnect();
     }
-  
-  }, [messages.length]);
-
+  }, []);
 
   useEffect(() => {
-    if (chatId && currentUser) {
+    if (chatId) {
       (async () => {
         try {
           setIsLoading(true);
-          const chatFromServer = await chatService.getById(chatId) as any as IChat;
+          const { messages: messagesFromServer, chat: chatFromServer } =
+            await messageService.getAll(chatId) as any as { messages: IMessage[], chat: IChat };
 
+          setMessages(messagesFromServer);
           setChat(chatFromServer);
           setIsLoading(false);
-          const receiver = chat?.users.find(user => user.id !== currentUser.id) as IUser;
-          setReceiver(receiver);
         } catch (error: any) {
+          setError(error);
           setIsLoading(false);
-          setError(error.response?.data?.message);
         }
       })();
 
-      socket.on('chatMessage', (message: IMessage) => {
-        setMessages([...messages, message])
-      });
+      if (chat && currentUser) {
+        setReceiver(chat.users.find(user => user.id !== currentUser.id) || null);
+      }
     }
-
-    return () => {
-      socket.off('chatMessage');
-    }
-  }, [!!chat, messages.length]);
+  }, [!!chat]);
 
   useEffect(() => {
     if (box.current) {
       box.current.scrollTop = box.current.scrollHeight;
     }
+
+    if (chat) {
+      socket.on(`sendMessageTo-${chat.id}`, (message) => {
+        setMessages([...messages, message]);
+      });
+
+      return () => {
+        socket.off(`sendMessageTo-${chat.id}`);
+      }
+    }
   }, [messages.length]);
+
+  const handleSubmit = ({ message }: { message: string }, formikHelpers: FormikHelpers<{ message: string }>) => {
+    formikHelpers.setSubmitting(true);
+    if (message && chat && currentUser && receiver) {
+
+      socket.emit('sendMessage', {
+        label: message,
+        userId: currentUser.id,
+        chatId: chat.id,
+        receiverId: receiver.id,
+      });
+    }
+
+    formikHelpers.resetForm();
+  }
 
   return (
     <>
@@ -95,17 +101,7 @@ export const DirectPage: React.FC = () => {
             initialValues={{
               message: '',
             }}
-            onSubmit={({ message }, formikHelpers) => {
-              formikHelpers.setSubmitting(true);
-              if (currentUser) {
-                socket.emit('chatMessage', {
-                  label: message,
-                  chatId: chat?.id,
-                  userId: currentUser.id,
-                });
-              }
-              formikHelpers.resetForm();
-            }}>
+            onSubmit={handleSubmit}>
             {(touched) => (
               <Form>
                 <div className="field has-addons">

@@ -5,8 +5,6 @@ import { Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './styles.scss';
 
-import socket from './socket';
-
 import { AccountActivationPage } from './pages/AccountActivationPage';
 import { LoginPage } from './pages/LoginPage';
 import { RegistrationPage } from './pages/RegistrationPage';
@@ -28,17 +26,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     checkAuth();
-  }, []);
-
-  useEffect(() => {
-    socket.emit('error');
-    socket.on('error', (error) => {
-      setError(error.message);
-    });
-
-    return () => {
-      socket.off('error');
-    };
   }, []);
 
   if (!isChecked) {

@@ -33,14 +33,15 @@ export const ChatItem: React.FC<Props> = ({ chat }) => {
             <div className="list-item-content">
               <div className="list-item-title">{receiver.name}</div>
               <div className="list-item-description">
-                {!chat?.lastMessage && (
-                  <p>start talking</p>
-                )}
-                {receiver.id === chat.lastMessage?.userId && (
-                  <p>{receiver.name}: {chat.lastMessage.label}</p>
-                )}
-                {currentUser.id === chat.lastMessage?.userId && (
-                  <p>{receiver.name}: {chat.lastMessage.label}</p>
+
+                {chat.lastMessage ? (
+                  <p>
+                    {receiver.id === chat.lastMessage.userId 
+                      ? `${receiver.name}: ${chat.lastMessage.label}`
+                      : `Me: ${chat.lastMessage.label}`}
+                  </p>
+                ) : (
+                  <p>Start talking</p>
                 )}
               </div>
             </div>
