@@ -1,0 +1,30 @@
+.MessageSendForm {
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-base;
+  }
+
+  &__input-wrapper {
+    flex-grow: 1;
+  }
+
+  &__button-wrapper {
+
+  }
+
+  &__input {
+    height: 100%;
+    width: 100%;
+    border-radius: $spacing-base;
+    border: none;
+    outline: none;
+    background-color: $color-white;
+    padding: $spacing-small $spacing-base;
+  }
+
+  &__button {
+
+  }
+}

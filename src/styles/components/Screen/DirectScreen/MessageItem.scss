@@ -1,0 +1,37 @@
+.MessageItem {
+  &__block {
+    padding: $spacing-small $spacing-base;
+    background-color: $color-white;
+    border-radius: $spacing-base;
+    margin-bottom: $spacing-small;
+  }
+
+  &__image {
+    width: $spacing-large;
+    height: $spacing-large;
+    border-radius: 50%;
+  }
+
+  &__figure {
+    display: flex;
+    align-items: start;
+    gap: $spacing-small;
+
+    &--author {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__name {
+    font-size: $font-size-small;
+    margin-bottom: $spacing-small;
+  }
+
+  &__date {
+    font-size: $font-size-extra-small;
+  }
+
+  &__message {
+    white-space: pre-wrap;
+  }
+}

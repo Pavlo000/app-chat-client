@@ -1,0 +1,26 @@
+.UserItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-base;
+
+  &__image {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-small;
+  }
+
+  &__button {
+    &--icon {
+      margin-right: $spacing-small;
+    }
+  }
+}

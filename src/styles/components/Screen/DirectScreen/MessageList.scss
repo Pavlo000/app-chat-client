@@ -1,0 +1,13 @@
+.MessageList {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: $spacing-base;
+  overflow-y: auto;
+  padding-right: $spacing-base;
+
+  &__item {
+    &--author {
+      justify-self: flex-end;
+    }
+  }
+}

@@ -1,24 +1,21 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosError, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 import { createClient } from './index';
 import { authService } from '../services/authService';
 import { accessTokenService } from '../services/accessTokenService';
 
-type HttpRequestConfig = AxiosRequestConfig;
-type HttpResponse<T = any> = AxiosResponse<T>;
+type HttpResponse<T> = AxiosResponse<T>;
 type HttpError = AxiosError;
 
 export const httpClient = createClient();
 
-httpClient.interceptors.request.use(onRequest as any);
+httpClient.interceptors.request.use(onRequest);
 httpClient.interceptors.response.use(onResponseSuccess, onResponseError);
 
-function onRequest(request: HttpRequestConfig): HttpRequestConfig {
+function onRequest(request: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
   const accessToken = localStorage.getItem('accessToken');
 
   if (accessToken) {
-    
-
     if (request.headers) {
       request.headers['Authorization'] = `Bearer ${accessToken}`;
     }
@@ -31,20 +28,17 @@ function onResponseSuccess<T>(res: HttpResponse<T>): T {
   return res.data;
 }
 
-async function onResponseError(error: HttpError): Promise<any> {
+async function onResponseError(error: HttpError): Promise<HttpError | unknown> {
   const originalRequest = error.config;
 
   if (error.response?.status !== 401) {
     throw error;
   }
 
-  try {
-    const { accessToken } = await authService.refresh() as any as { accessToken: string };
+  const { accessToken } = await authService.refresh();
 
-    accessTokenService.save(accessToken);
+  accessTokenService.save(accessToken);
 
-    return httpClient.request(originalRequest as AxiosRequestConfig);
-  } catch (error) {
-    throw error;
-  }
+  return httpClient.request(originalRequest as AxiosRequestConfig);
 }
+

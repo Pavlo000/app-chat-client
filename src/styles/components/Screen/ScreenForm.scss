@@ -1,0 +1,55 @@
+.ScreenForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+
+  &__title {
+    margin-bottom: $spacing-base;
+    text-align: center;
+  }
+
+  &__field {
+    margin-bottom: $spacing-base;
+  }
+
+  &__control {
+    position: relative;
+
+    & .ScreenForm__icon {
+      left: $spacing-small;
+    }
+  }
+
+  &__input {
+    padding: $spacing-small $spacing-base $spacing-small $spacing-large;
+    border-radius: $spacing-base;
+    width: 100%;
+
+    &--danger {
+      border: 1px solid $color-danger;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--danger {
+      color: $color-danger;
+    }
+  }
+
+  &__message {
+    &--danger {
+      color: $color-danger;
+    }
+  }
+
+  &__submit {
+    text-align: center;
+  }
+}

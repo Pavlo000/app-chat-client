@@ -1,7 +1,11 @@
+import { IChat } from './IChat';
+import { IUser } from './IUser';
+
 export interface IMessage {
   id: string,
-  label: string,
-  userId: string,
-  chatId: string,
+  message: string,
+  user: IUser,
+  chat: IChat,
   createdAt: Date,
+  viewedBy: IUser[],
 }

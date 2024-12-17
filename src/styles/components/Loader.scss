@@ -1,0 +1,29 @@
+@keyframes upDown {
+  0% {
+    height: 10px;
+  }
+  100% {
+    height: 40px;
+  }
+}
+
+
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 10px;
+
+  &__column {
+    width: 10px;
+    height: 10px;
+    border-radius: $spacing-base;
+    background-color: $color-primary-shade-3;
+    animation: upDown 1s infinite alternate linear;
+
+    &:nth-child(2n + 2) {
+      animation: upDown 1s infinite alternate-reverse linear;
+    }
+  }
+}

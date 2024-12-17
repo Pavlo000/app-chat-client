@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: serif;
+  font-size: $font-size-base;
+  background-color: $color-background;
+  color: $color-primary;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+  font-weight: $font-weight-bold;
+}
+
+input, textarea {
+  font-family: $font-primary;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: $spacing-small;
+  height: $spacing-small;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-primary-shade-3;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $color-background;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $color-primary-shade-2;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: $color-primary-shade-1;
+}

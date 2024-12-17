@@ -1,0 +1,47 @@
+// SCSS variables for colors
+$color-primary: #24341a; // Primary color (dark green)
+$color-secondary: #FFD700; // Secondary color (yellow accent)
+$color-white: #FFFFFF; // White (background for buttons and text areas)
+$color-black: #030303; // Black (text and accents)
+$color-background: #e8eddf; // Background color for the entire app
+
+// SCSS variables for shades of primary color
+$color-primary-shade-1: $color-primary;
+$color-primary-shade-2: #4a9654;
+$color-primary-shade-3: #65aa4c;
+$color-primary-shade-4: #b2ceae;
+
+// SCSS variables for shades of secondary color
+$color-secondary-shade-1: $color-secondary;
+$color-secondary-shade-2: #ece0b1;
+
+// SCSS variables for fonts
+$font-primary: 'Nunito', serif; // Primary font
+$font-secondary: 'Open Sans', sans-serif; // Secondary font (headings)
+$font-size-base: 16px; // Base font size
+$font-size-large: 20px; // Large font size
+$font-size-heading: 24px; // Font size for headings
+$font-size-small: 14px; // Font size for small text
+$font-size-extra-small: 12px; // Font size for small text
+
+// SCSS other colors
+$color-danger: #dc6969;
+
+// SCSS variables for spacing
+$spacing-base: 16px; // Base spacing
+$spacing-small: 8px; // Small spacing
+$spacing-large: 32px; // Large spacing
+
+// SCSS variables for font weights
+$font-weight-base: 400; // Base font weight
+$font-weight-medium: 500; // Medium font weight
+$font-weight-bold: 700; // Bold font weight
+
+// SCSS variables for components sizes
+$header-height: 64px;
+$footer-height: 64px;
+$page-form-width: 520px;
+
+// SCSS variables for animation
+$animation-duration: 0.3s;
+$animation-timing-function: ease-in-out;

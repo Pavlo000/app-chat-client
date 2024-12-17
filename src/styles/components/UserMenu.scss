@@ -1,0 +1,37 @@
+.UserMenu {
+  background: $color-primary-shade-2;
+  background: linear-gradient(135deg, $color-primary-shade-2 0%, $color-primary-shade-3 50%, $color-primary-shade-2 100%);
+  padding: $spacing-base;
+  border-radius: $spacing-base;
+  margin-top: auto;
+  margin-bottom: -$spacing-base;
+
+  &__figure {
+    display: flex;
+    align-items: center;
+    gap: $spacing-small;
+    margin-bottom: $spacing-base;
+  }
+
+  &__name {
+    margin-bottom: $spacing-small;
+  }
+
+  &__image {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+  }
+
+  &__button {
+    display: block;
+    text-align: center;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    background: $color-white;
+    color: $color-primary-shade-3;
+    padding: $spacing-base $spacing-large;
+    border-radius: $spacing-base;
+    width: 100%;
+  }
+}

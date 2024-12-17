@@ -1,0 +1,133 @@
+@keyframes dropdown-open {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ControlPanel {
+  display: flex;
+  background-color: $color-white;
+
+  &__link {
+    display: block;
+    padding: $spacing-small $spacing-base;
+    margin-right: $spacing-base;
+    color: $color-black;
+    transition: all $animation-duration $animation-timing-function;
+    position: relative;
+
+    &:first-child {
+      margin-left: $spacing-base;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: transparent;
+      transition: all $animation-duration $animation-timing-function;
+    }
+
+    &--active, &:hover {
+      background-color: $color-white;
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        border-radius: 2px;
+        background-color: $color-primary-shade-2;
+      }
+    }
+  }
+
+  &__button {
+    outline: none;
+    background-color: transparent;
+
+    & i {
+      margin-right: $spacing-small;
+      transition: all $animation-duration $animation-timing-function;
+    }
+
+    &:hover {
+      outline: none;
+
+      & i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+
+    &--right {
+      margin-left: auto;
+    }
+
+    &-button {
+      outline: none;
+      background-color: transparent;
+
+      & i {
+        margin-right: $spacing-small;
+        transition: all $animation-duration $animation-timing-function;
+      }
+
+      &:hover {
+        outline: none;
+      }
+
+      &:has(+.ControlPanel__dropdown-content--active) i {
+        transform: rotate(180deg);
+      }
+    }
+
+    &-content {
+      display: none; 
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin-top: calc($spacing-base / 2);
+      background-color: $color-white;
+      box-shadow: 0 0 5px 1px lighten($color-black, 80%);
+      padding: $spacing-small $spacing-base;
+      border-radius: $spacing-base;
+      animation: dropdown-open $animation-duration $animation-timing-function;
+
+      &--active {
+        display: block;
+      }
+    }
+  }
+
+  &__search {
+    flex: 1;
+
+    &-input {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      padding: $spacing-small $spacing-base;
+      border-radius: $spacing-base;
+      border: none;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-large;
+    padding: $spacing-small $spacing-base;
+  }
+}
+

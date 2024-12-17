@@ -1,11 +1,12 @@
-type Props = {
-  error: any,
-};
+import { useContext } from 'react';
+import { ErrorContext } from '../context/ErrorContext';
 
-export const ErrorMessage: React.FC<Props> = ({ error }) => {
-  return (
-    <p className="error notification is-danger is-light">
-      {error}
-    </p>
-  )
-}
+export const GlobalErrorMessage: React.FC = () => {
+  const { error } = useContext(ErrorContext);
+
+  if (!error) {
+    return null;
+  }
+
+  return <p className="error notification is-danger is-light">{error}</p>;
+};

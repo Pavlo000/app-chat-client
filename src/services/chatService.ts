@@ -1,19 +1,20 @@
 import { httpClient } from '../http/httpClient';
+import { IChat } from '../types/IChat';
 
 function getAll(userId: string) {
-  return httpClient.get(`/chats?userId=${userId}`);
+  return httpClient.get<unknown, IChat[]>(`/chats?userId=${userId}`);
 }
 
-function create(usersIds: string[]) {
-  return httpClient.post('/chats', { usersIds });
+function createOrGet(usersIds: string[]) {
+  return httpClient.post<unknown, IChat>('/chats', { usersIds });
 }
 
 function getById(chatId: string) {
-  return httpClient.get(`/chats/${chatId}`);
+  return httpClient.get<unknown, IChat>(`/chats/${chatId}`);
 }
 
-export const chatService = { 
+export const chatService = {
   getAll,
-  create,
+  createOrGet,
   getById,
 };

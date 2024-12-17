@@ -1,42 +1,50 @@
 function validateEmail(value: string) {
   if (!value) {
-    return "Email is required";
+    return 'Email is required';
   }
 
   const emailPattern = /^[\w.+-]+@([\w-]+\.){1,3}[\w-]{2,}$/;
 
   if (!emailPattern.test(value)) {
-    return "Email is not valid";
+    return 'Email is not valid';
+  }
+}
+
+function validateFirstName(value: string) {
+  if (!value) {
+    return 'First Name is required';
+  }
+
+  if (value.length < 2) {
+    return 'At least 2 characters';
+  }
+
+  if (value.length > 20) {
+    return 'Maximum 20 characters';
+  }
+}
+
+function validateLastName(value: string) {
+  if (!value) {
+    return 'Last Name is required';
+  }
+
+  if (value.length < 2) {
+    return 'At least 2 characters';
+  }
+
+  if (value.length > 20) {
+    return 'Maximum 20 characters';
   }
 }
 
 function validatePassword(value: string) {
   if (!value) {
-    return "Password is required";
+    return 'Password is required';
   }
 
   if (value.length < 6) {
-    return "At least 6 characters";
-  }
-};
-
-function validateName(value: string) {
-  if (!value) {
-    return "Name is required";
-  }
-
-  if (value.length > 20) {
-    return "Max 20 characters";
-  }
-}
-
-function validateSurname(value: string) {
-  if (!value) {
-    return "Surname is required";
-  }
-
-  if (value.length > 20) {
-    return "Max 20 characters";
+    return 'At least 6 characters';
   }
 }
 
@@ -52,6 +60,6 @@ export const validation = {
   validateEmail,
   validatePassword,
   validateAvatar,
-  validateName,
-  validateSurname,
+  validateFirstName,
+  validateLastName,
 };

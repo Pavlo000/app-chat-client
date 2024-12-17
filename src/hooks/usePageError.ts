@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
+import { ErrorContext } from '../context/ErrorContext';
 
-export const usePageError = (initialError: string): [string, React.Dispatch<React.SetStateAction<string>>] => {
-  const [error, setError] = useState(initialError);
+export const usePageError = (): [string, React.Dispatch<React.SetStateAction<string>>] => {
+  const { error, setError } = useContext(ErrorContext);
 
   useEffect(() => {
     if (!error) {

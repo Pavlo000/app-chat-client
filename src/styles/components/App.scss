@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+
+  &__main {
+    width: 100%;
+  }
+
+  &__page-container, &__screen-container {
+    height: calc(100vh - $header-height - $footer-height);
+  }
+
+  &__screen-container {
+    margin-right: $spacing-base;
+  }
+}

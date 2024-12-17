@@ -1,0 +1,11 @@
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-base;
+  height: calc(100vh - $header-height);
+
+  &__title {
+    margin-bottom: $spacing-base;
+    height: $header-height;
+  }
+}

@@ -1,0 +1,99 @@
+.PageForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: $page-form-width;
+  height: 100%;
+  margin: 0 auto;
+
+
+  background: $color-background;
+  background: linear-gradient(135deg, $color-secondary-shade-2 0%, $color-primary-shade-4 50%, $color-secondary-shade-2 100%);
+  border-radius: $spacing-base;
+  padding: $spacing-base;
+
+  &__message {
+    text-align: center;
+  }
+
+  &__message-title {
+    margin-bottom: $spacing-small;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: $spacing-base;
+  }
+
+  &__field {
+    margin-bottom: $spacing-base;
+
+    &-control {
+      position: relative;
+
+      & i {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+
+        &.fa-exclamation-triangle {
+          color: $color-danger;
+        }
+      }
+    }
+
+    &-input {
+      display: block;
+      width: 100%;
+      border: 1px solid $color-primary;
+      border-radius: $spacing-base;
+      padding: $spacing-small $spacing-base;
+      padding-left: 30px;
+
+      &--danger {
+        border: 1px solid $color-danger;
+      }
+    }
+
+    &-help, &-error {
+      font-size: $font-size-small;
+      padding-left: $spacing-base;
+    }
+
+    &-error {
+      color: $color-danger;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $spacing-base;
+  }
+
+  &__button {
+    &[disabled] {
+      color: $color-primary;
+      background-color: $color-secondary;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:hover:not([disabled]) {
+      background-color: transparent;
+    }
+
+    margin-bottom: $spacing-base;
+  }
+
+  &__clue {
+    &-link {
+      margin-left: 5px;
+      text-decoration: underline;
+    }
+  }
+}

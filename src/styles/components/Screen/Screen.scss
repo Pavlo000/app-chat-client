@@ -1,0 +1,43 @@
+.Screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: $color-background;
+  background: linear-gradient(135deg, $color-secondary-shade-2 0%, $color-primary-shade-4 50%, $color-secondary-shade-2 100%);
+  border-radius: $spacing-base;
+  padding: $spacing-base;
+  gap: $spacing-base;
+
+  &__list {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-base;
+    background-color: $color-white;
+    padding: $spacing-base;
+    border-radius: $spacing-base;
+    overflow: hidden;
+    min-height: fit-content;
+
+    &--height-full {
+      min-height: unset;
+      height: 100%;
+    }
+
+    &--padding-less {
+      padding: 0;
+    }
+
+    &--transparent {
+      background-color: transparent;
+    }
+  }
+
+  &__loader {
+    height: 100%;
+  }
+}

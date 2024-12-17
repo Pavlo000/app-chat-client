@@ -1,0 +1,66 @@
+%heading-1 {
+  font-size: $font-size-heading;
+}
+
+%heading-2 {
+  font-size: $font-size-heading;
+}
+
+%heading-3 {
+  font-size: $font-size-heading;
+}
+
+%heading-4 {
+  font-size: $font-size-base;
+}
+
+%heading-5 {
+  font-size: $font-size-base;
+}
+
+%heading-6 {
+  font-size: $font-size-small;
+}
+
+%input {
+  padding: $spacing-small $spacing-base $spacing-small $spacing-large;
+  border-radius: $spacing-base;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+%button {
+  background-color: $color-secondary;
+  font-family: $font-secondary;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  outline: 1px solid $color-secondary;
+  border-radius: $spacing-base;
+  padding: $spacing-small $spacing-base;
+  border: none;
+  cursor: pointer;
+  transition: all $animation-duration $animation-timing-function;
+
+  &:hover {
+    border: none;
+    outline: 1px solid $color-secondary;
+    background-color: $color-white;
+  }
+
+  &:disabled {
+    background-color: $color-secondary;
+    outline: 1px solid $color-secondary;
+    cursor: not-allowed;
+  }
+}
+
+%link {
+  text-decoration: none;
+  color: $color-primary;
+}
+
+%paragraph {
+  font-family: $font-primary;
+  color: $color-primary;
+}
