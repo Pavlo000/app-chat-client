@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.3cc2046e.css",
-    "main.js": "/static/js/main.e9a06ea1.js",
-    "static/media/OpenSans-Italic-VariableFont_wdth,wght.ttf": "/static/media/OpenSans-Italic-VariableFont_wdth,wght.582284c873c3f85ba4f8.ttf",
-    "static/media/OpenSans-VariableFont_wdth,wght.ttf": "/static/media/OpenSans-VariableFont_wdth,wght.19ba637387f1d6142f55.ttf",
-    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.ad1782c70927ebc5bc87.ttf",
-    "static/media/Nunito-Italic-VariableFont_wght.ttf": "/static/media/Nunito-Italic-VariableFont_wght.749b59811ed46de3c015.ttf",
-    "static/media/Nunito-VariableFont_wght.ttf": "/static/media/Nunito-VariableFont_wght.c0f0807a40aebdc41b40.ttf",
-    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.26b80c8830bebf340211.ttf",
-    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.83a538a018a9e44b023a.woff2",
-    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.fdbb558523a380307689.woff2",
-    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.05fdd87be89f7f8f0a1e.ttf",
-    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.4f6a2dabee9c092d09b9.woff2",
-    "static/media/profile.jpg": "/static/media/profile.4aa827c3440249505e81.jpg",
-    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.fa86b3c85e77abbd2ebd.ttf",
-    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.c3ea317a0f10f201597f.woff2",
-    "index.html": "/index.html",
-    "main.3cc2046e.css.map": "/static/css/main.3cc2046e.css.map",
-    "main.e9a06ea1.js.map": "/static/js/main.e9a06ea1.js.map"
+    "main.css": "/app-chat-client/static/css/main.9281a738.css",
+    "main.js": "/app-chat-client/static/js/main.d7700e08.js",
+    "static/media/OpenSans-Italic-VariableFont_wdth,wght.ttf": "/app-chat-client/static/media/OpenSans-Italic-VariableFont_wdth,wght.582284c873c3f85ba4f8.ttf",
+    "static/media/OpenSans-VariableFont_wdth,wght.ttf": "/app-chat-client/static/media/OpenSans-VariableFont_wdth,wght.19ba637387f1d6142f55.ttf",
+    "static/media/fa-solid-900.ttf": "/app-chat-client/static/media/fa-solid-900.ad1782c70927ebc5bc87.ttf",
+    "static/media/Nunito-Italic-VariableFont_wght.ttf": "/app-chat-client/static/media/Nunito-Italic-VariableFont_wght.749b59811ed46de3c015.ttf",
+    "static/media/Nunito-VariableFont_wght.ttf": "/app-chat-client/static/media/Nunito-VariableFont_wght.c0f0807a40aebdc41b40.ttf",
+    "static/media/fa-brands-400.ttf": "/app-chat-client/static/media/fa-brands-400.26b80c8830bebf340211.ttf",
+    "static/media/fa-solid-900.woff2": "/app-chat-client/static/media/fa-solid-900.83a538a018a9e44b023a.woff2",
+    "static/media/fa-brands-400.woff2": "/app-chat-client/static/media/fa-brands-400.fdbb558523a380307689.woff2",
+    "static/media/fa-regular-400.ttf": "/app-chat-client/static/media/fa-regular-400.05fdd87be89f7f8f0a1e.ttf",
+    "static/media/fa-regular-400.woff2": "/app-chat-client/static/media/fa-regular-400.4f6a2dabee9c092d09b9.woff2",
+    "static/media/profile.jpg": "/app-chat-client/static/media/profile.4aa827c3440249505e81.jpg",
+    "static/media/fa-v4compatibility.ttf": "/app-chat-client/static/media/fa-v4compatibility.fa86b3c85e77abbd2ebd.ttf",
+    "static/media/fa-v4compatibility.woff2": "/app-chat-client/static/media/fa-v4compatibility.c3ea317a0f10f201597f.woff2",
+    "index.html": "/app-chat-client/index.html",
+    "main.9281a738.css.map": "/app-chat-client/static/css/main.9281a738.css.map",
+    "main.d7700e08.js.map": "/app-chat-client/static/js/main.d7700e08.js.map"
   },
   "entrypoints": [
-    "static/css/main.3cc2046e.css",
-    "static/js/main.e9a06ea1.js"
+    "static/css/main.9281a738.css",
+    "static/js/main.d7700e08.js"
   ]
 }
