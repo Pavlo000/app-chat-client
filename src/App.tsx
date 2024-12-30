@@ -8,7 +8,7 @@ import { Footer } from './components/Footer';
 import { RequireAuth } from './components/RequireAuth';
 import { Loader } from './components/Loader';
 import { RequireNonAuth } from './components/RequireNonAuth';
-import { GlobalErrorMessage } from './components/ErrorMessage';
+import { ErrorMessage } from './components/ErrorMessage';
 
 
 // Screens
@@ -93,7 +93,7 @@ const App: React.FC = () => {
           <Footer />
         </footer>
 
-        <GlobalErrorMessage />
+        <ErrorMessage />
       </main>
     </div>
   );

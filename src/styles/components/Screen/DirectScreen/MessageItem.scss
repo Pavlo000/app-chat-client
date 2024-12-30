@@ -14,7 +14,7 @@
 
   &__figure {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     gap: $spacing-small;
 
     &--author {

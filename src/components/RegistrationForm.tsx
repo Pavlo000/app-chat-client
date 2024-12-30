@@ -7,7 +7,7 @@ import { authService } from '../services/authService';
 import { usePageError } from '../hooks/usePageError';
 import { validation } from '../utils/validation';
 import { AxiosError } from 'axios';
-import { IError } from '../types/IError';
+import { IErrorResponse } from '../types/IErrorResponse';
 
 export const RegistrationForm: React.FC = () => {
   const [, setError] = usePageError();
@@ -30,7 +30,7 @@ export const RegistrationForm: React.FC = () => {
       .then(() => {
         setRegistered(true);
       })
-      .catch((error: AxiosError<IError>) => {
+      .catch((error: AxiosError<IErrorResponse>) => {
         const { errors = {}, message } = error.response?.data || {};
 
         if (Object.keys(errors).length > 0) {

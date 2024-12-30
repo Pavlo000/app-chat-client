@@ -3,6 +3,7 @@
   grid-template-columns: 100%;
   gap: $spacing-base;
   overflow-y: auto;
+  list-style: none;
   padding-right: $spacing-base;
 
   &__item {

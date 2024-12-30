@@ -1,0 +1,14 @@
+.ErrorMessage {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $color-danger;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 16px;
+
+  &__message {
+    color: $color-white;
+  }
+}

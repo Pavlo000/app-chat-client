@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "react/react-in-jsx-scope": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/**/**/*.{js,mjs,cjs,ts,jsx,tsx}",
+        "src/**/*.{js,mjs,cjs,ts,jsx,tsx}",
+        "src/*.{js,mjs,cjs,ts,jsx,tsx}"
+      ]
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

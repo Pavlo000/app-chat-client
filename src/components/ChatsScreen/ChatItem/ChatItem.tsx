@@ -13,6 +13,7 @@ export const ChatItem: React.FC<Props> = ({ chat }) => {
   const { user: currentUser } = useContext(AuthContext);
   const receivers = chat.users.filter((user) => user.id !== currentUser?.id);
   const { notifications } = useContext(NotificationsContext);
+  const chatNotifications = notifications.filter((notification) => notification.chat.id === chat.id);
 
   return currentUser && (
     <div className="ChatItem">
@@ -35,15 +36,15 @@ export const ChatItem: React.FC<Props> = ({ chat }) => {
             {receivers.map((user) => `${user.firstName || ''} ${user.lastName || ''}`).join(', ')}
           </h4>
           <div className="ChatItem__description">
-            { chat.lastMessage && !notifications.length && (
+            { chat.lastMessage && !chatNotifications.length && (
               <p>
-                {chat.lastMessage.user.firstName || ''} {chat.lastMessage.user.lastName || ''}
+                {chat.lastMessage.user.id === currentUser.id ? 'You' : `${chat.lastMessage.user.firstName || ''} ${chat.lastMessage.user.lastName || ''}`}
                 : {chat.lastMessage.message}
               </p>
             )}
-            { chat.lastMessage && !!notifications.length && (
-              <strong>
-                ({notifications.length}) {chat.lastMessage.user.firstName || ''} {chat.lastMessage.user.lastName || ''}
+            {chat.lastMessage && !!chatNotifications.length && (
+              <strong className="ChatItem__notification">
+                ({chatNotifications.length}) {chat.lastMessage.user.id === currentUser.id ? 'You' : `${chat.lastMessage.user.firstName || ''} ${chat.lastMessage.user.lastName || ''}`}
                 : {chat.lastMessage.message}
               </strong>
             )}

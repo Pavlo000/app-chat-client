@@ -5,9 +5,10 @@ import { normalizeDate } from '../../utils/normalizeDate';
 type Props = {
   message: IMessage;
   isAuthor: boolean;
+  isGroup: boolean;
 };
 
-export const MessageItem: React.FC<Props> = ({ message, isAuthor }) => {
+export const MessageItem: React.FC<Props> = ({ message, isAuthor, isGroup }) => {
   const date = normalizeDate(new Date(message.createdAt));
 
   const handleMessageFigureClassName = (isAuthor: boolean) => cn('MessageItem__figure', { 'MessageItem__figure--author': isAuthor });
@@ -22,9 +23,11 @@ export const MessageItem: React.FC<Props> = ({ message, isAuthor }) => {
         />
         <figcaption className="MessageItem__caption">
           <div className="MessageItem__block">
-            <h4 className="MessageItem__name">
-              {message.user.firstName + ' ' + message.user.lastName}
-            </h4>
+            {isGroup && (
+              <h4 className="MessageItem__name">
+                {message.user.firstName + ' ' + message.user.lastName}
+              </h4>
+            )}
             <p className="MessageItem__message">
               {message.message}
             </p>

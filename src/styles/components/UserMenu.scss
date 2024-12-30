@@ -6,11 +6,25 @@
   margin-top: auto;
   margin-bottom: -$spacing-base;
 
+  &__notifications {
+    position: absolute;
+    top: -10px;
+    left: -5px;
+    background: $color-danger;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__figure {
     display: flex;
     align-items: center;
     gap: $spacing-small;
     margin-bottom: $spacing-base;
+    position: relative;
   }
 
   &__name {

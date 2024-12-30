@@ -1,16 +1,18 @@
 import cn from 'classnames';
 import { IMessage } from '../../types/IMessage';
 import { MessageItem } from './MessageItem';
-import { IUser } from '../../types';
+import { IChat, IUser } from '../../types';
 
 type Props = {
   messages: IMessage[];
-  lastMessageRef: React.RefObject<HTMLLIElement>;
+  lastMessageRef: React.RefObject<HTMLLIElement | null>;
   user: IUser;
+  chat: IChat;
 };
 
-export const MessageList: React.FC<Props> = ({ user, messages, lastMessageRef }) => {
+export const MessageList: React.FC<Props> = ({ user, messages, lastMessageRef, chat }) => {
   const handleListItemClassName = (isAuthor: boolean) => cn('MessageList__item', { 'MessageList__item--author': isAuthor });
+  const isGroup = chat.users.length > 2;
 
   return (
     <ul className="MessageList">
@@ -23,14 +25,14 @@ export const MessageList: React.FC<Props> = ({ user, messages, lastMessageRef })
             className={handleListItemClassName(isAuthor)}
             ref={lastMessageRef}
           >
-            <MessageItem message={message} isAuthor={isAuthor} />
+            <MessageItem message={message} isAuthor={isAuthor} isGroup={isGroup} />
           </li>
         ) : (
           <li
             key={message.id}
             className={handleListItemClassName(isAuthor)}
           >
-            <MessageItem message={message} isAuthor={isAuthor} />
+            <MessageItem message={message} isAuthor={isAuthor} isGroup={isGroup} />
           </li>
         );
       })}

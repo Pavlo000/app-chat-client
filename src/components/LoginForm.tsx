@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { AuthContext } from '../context/AuthContext';
 import { usePageError } from '../hooks/usePageError';
 import { validation } from '../utils/validation';
-import { IError } from '../types/IError';
+import { IErrorResponse } from '../types/IErrorResponse';
 import { AxiosError } from 'axios';
 
 export const LoginForm: React.FC = () => {
@@ -23,7 +23,7 @@ export const LoginForm: React.FC = () => {
       .then(() => {
         navigate(location.state?.from?.pathname || '/');
       })
-      .catch((error: AxiosError<IError>) => {
+      .catch((error: AxiosError<IErrorResponse>) => {
         const { message, errors = {} } = error.response?.data || {};
         if (Object.keys(errors).length > 0) {
           formikHelpers.setFieldError('email', errors?.email);

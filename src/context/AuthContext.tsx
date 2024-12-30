@@ -29,10 +29,12 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
   const [isChecked, setChecked] = useState(false);
 
   async function activate(activationToken: string, userDetails: UserDetails) {
-    const { accessToken, user } = await authService.activate(
+    const response = await authService.activate(
       activationToken,
       userDetails
     );
+
+    const { accessToken, user } = response.data;
 
     accessTokenService.save(accessToken);
     setUser(user);
@@ -40,7 +42,9 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
 
   async function checkAuth() {
     try {
-      const { accessToken, user } = await authService.refresh();
+      const response = await authService.refresh();
+
+      const { accessToken, user } = response.data;
 
       accessTokenService.save(accessToken);
 
@@ -53,7 +57,9 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
   }
 
   async function login(credentials: { email: string; password: string }) {
-    const { accessToken, user } = await authService.login(credentials);
+    const response = await authService.login(credentials);
+
+    const { accessToken, user } = response.data;
 
     accessTokenService.save(accessToken);
     setUser(user);

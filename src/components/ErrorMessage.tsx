@@ -1,12 +1,14 @@
 import { useContext } from 'react';
 import { ErrorContext } from '../context/ErrorContext';
 
-export const GlobalErrorMessage: React.FC = () => {
+export const ErrorMessage: React.FC = () => {
   const { error } = useContext(ErrorContext);
 
   if (!error) {
     return null;
   }
 
-  return <p className="error notification is-danger is-light">{error}</p>;
+  return <div className="ErrorMessage">
+    <p className="ErrorMessage__message">{error}</p>
+  </div>;
 };

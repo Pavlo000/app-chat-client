@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import cn from 'classnames';
 
-import { IError } from '../../types/IError';
+import { IErrorResponse } from '../../types/IErrorResponse';
 import { AxiosError } from 'axios';
 import { usePageError } from '../../hooks/usePageError';
 
@@ -22,7 +22,7 @@ export const Navbar: React.FC = () => {
       .then(() => {
         navigate('/');
       })
-      .catch((error: AxiosError<IError>) => {
+      .catch((error: AxiosError<IErrorResponse>) => {
         setError(error.response?.data?.message || 'Failed to log out');
       });
   };
@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
             <i className="Navbar__item--icon fa fa-user"></i> People
           </NavLink>
           <NavLink to="/chats" className={buildNavbarItemClass}>
-            <i className="Navbar__item--icon fa fa-comments"></i> Chats and Groups
+            <i className="Navbar__item--icon fa fa-comments"></i> Chats
           </NavLink>
           {location.pathname.includes('/chats/') && (
             <div

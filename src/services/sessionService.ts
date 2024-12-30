@@ -1,8 +1,8 @@
 import { httpClient } from '../http/httpClient';
-import { ISession } from '../types/ISession';
+import { IHttpSingleResponse } from '../types/IHttpResponse';
 
 function create(userId: string, socketId: string) {
-  return httpClient.post<unknown, { session: ISession }>('/sessions', { userId, socketId });
+  return httpClient.post<unknown, IHttpSingleResponse<void>>('/sessions', { userId, socketId });
 }
 
 export const sessionService = {

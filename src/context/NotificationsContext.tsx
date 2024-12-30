@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { INotification } from '../types/INotification';
 import { AuthContext } from './AuthContext';
 import { notificationService } from '../services/notificationService';
-import { IError } from '../types/IError';
+import { IErrorResponse } from '../types/IErrorResponse';
 import { ErrorContext } from './ErrorContext';
 import { AxiosError } from 'axios';
 
@@ -26,8 +26,12 @@ export const NotificationsProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     if (!user) return;
     notificationService.getAllByUserId(user.id)
-      .then(setNotifications)
-      .catch((error: AxiosError<IError>) => {
+      .then((response) => {
+        const { data } = response;
+
+        setNotifications(data.items);
+      })
+      .catch((error: AxiosError<IErrorResponse>) => {
         setError(error.response?.data.message || 'Failed to fetch notifications');
       });
   }, [user]);

@@ -13,6 +13,10 @@
     margin-bottom: $spacing-small;
   }
 
+  &__notification {
+    font-weight: 700;
+  }
+
   &__figure {
     // TODO: add styles
     width: 64px;

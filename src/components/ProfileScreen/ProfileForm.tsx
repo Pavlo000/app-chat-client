@@ -4,9 +4,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { userService } from '../../services/userService';
 import { usePageError } from '../../hooks/usePageError';
-import { IUser } from '../../types/IUser';
 import { AxiosError } from 'axios';
-import { IError } from '../../types/IError';
+import { IErrorResponse } from '../../types/IErrorResponse';
 import { compressImage, convertToBase64 } from '../../utils/compressImage';
 import { validation } from '../../utils/validation';
 import cn from 'classnames';
@@ -33,11 +32,13 @@ export const ProfileForm: React.FC = () => {
     };
 
     userService.update(user.id, userData)
-      .then((user: IUser) => {
-        setUser(user);
+      .then((response) => {
+        const { data } = response;
+
+        setUser(data);
         navigate('/profile');
       })
-      .catch((error: AxiosError<IError>) => {
+      .catch((error: AxiosError<IErrorResponse>) => {
         setError(error.response?.data.message || 'Error updating user');
       })
       .finally(() => {

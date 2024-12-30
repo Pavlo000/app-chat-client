@@ -13,7 +13,7 @@ export const useSocketConnection = (user: IUser | null) => {
     if (user && !isConnected) {
       onConnect = () => {
         console.log('Session ID: ', socket.id);
-        sessionService.create(user.id, socket.id);
+        sessionService.create(user.id, socket.id!);
         setIsConnected(true);
       };
 

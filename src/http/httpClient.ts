@@ -35,9 +35,9 @@ async function onResponseError(error: HttpError): Promise<HttpError | unknown> {
     throw error;
   }
 
-  const { accessToken } = await authService.refresh();
+  const { data } = await authService.refresh();
 
-  accessTokenService.save(accessToken);
+  accessTokenService.save(data.accessToken);
 
   return httpClient.request(originalRequest as AxiosRequestConfig);
 }

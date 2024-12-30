@@ -3,8 +3,8 @@ import socket from '../../socket';
 import { IChat, IUser } from '../../types';
 
 type Props = {
-  currentUser: IUser,
-  chat: IChat,
+  currentUser: IUser;
+  chat: IChat;
 }
 
 export const MessageSendForm: React.FC<Props> = ({ currentUser, chat }) => {

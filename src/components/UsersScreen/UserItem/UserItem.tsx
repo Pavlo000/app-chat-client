@@ -4,7 +4,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { chatService } from '../../../services/chatService';
 import { ErrorContext } from '../../../context/ErrorContext';
-import { IError } from '../../../types/IError';
+import { IErrorResponse } from '../../../types/IErrorResponse';
 import { AxiosError } from 'axios';
 import defaultAvatar from '../../../assets/profile.jpg';
 
@@ -21,10 +21,12 @@ export const UserItem: React.FC<Props> = ({ user }) => {
   function handleClick() {
     if (currentUser) {
       chatService.createOrGet([currentUser.id, user.id])
-        .then((chat) => {
-          navigate(`/chats/${chat.id}`);
+        .then((response) => {
+          const { data } = response;
+
+          navigate(`/chats/${data.id}`);
         })
-        .catch((error: AxiosError<IError>) => {
+        .catch((error: AxiosError<IErrorResponse>) => {
           setError(error.response?.data?.message || 'Unable to create chat');
         });
     }

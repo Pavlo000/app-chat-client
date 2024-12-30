@@ -1,6 +1,7 @@
 .ScreenList {
   display: flex;
   flex-direction: column;
+  list-style: none;
   gap: $spacing-base;
 
   &__item {

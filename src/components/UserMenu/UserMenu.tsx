@@ -3,11 +3,11 @@ import { AuthContext } from '../../context/AuthContext';
 
 
 import { Link } from 'react-router-dom';
+import { NotificationsContext } from '../../context/NotificationsContext';
 
 export const UserMenu: React.FC = () => {
   const { user } = useContext(AuthContext);
-
-
+  const { notifications } = useContext(NotificationsContext);
 
   if (!user) {
     return null;
@@ -22,6 +22,11 @@ export const UserMenu: React.FC = () => {
           alt={`${user.firstName} ${user.lastName}`}
         />
         <figcaption className="UserMenu__figcaption">
+          {notifications.length > 0 && (
+            <span className="UserMenu__notifications">
+              {notifications.length}
+            </span>
+          )}
           <h4 className="UserMenu__name">{user.firstName} {user.lastName}</h4>
           <p className="UserMenu__email">{user.email}</p>
         </figcaption>
